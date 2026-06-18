@@ -14,6 +14,7 @@ import { Navbar } from '@/components/site/Navbar';
 import { Section } from '@/components/site/Section';
 import { Counter } from '@/components/site/Counter';
 import { Logo } from '@/components/site/Logo';
+import { ShieldMark, BlueprintLines, ArrowMotif } from '@/components/site/Decorations';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -175,9 +176,12 @@ const Hero = () => {
   return (
     <section className="relative isolate overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid mask-fade-b opacity-50" />
-        <div className="absolute -top-32 left-1/2 h-[600px] w-[1100px] -translate-x-1/2 rounded-full bg-gradient-to-r from-primary/10 via-accent/15 to-primary/10 blur-3xl animate-blob" />
+        <div className="absolute inset-0 bg-blueprint mask-fade-b opacity-40 dark:opacity-25" />
+        <div className="absolute -top-32 left-1/2 h-[600px] w-[1100px] -translate-x-1/2 rounded-full bg-gradient-to-r from-brand-blue/10 via-accent/15 to-brand-blue/10 blur-3xl animate-blob" />
         <div className="absolute top-40 right-10 h-72 w-72 rounded-full bg-accent/20 blur-3xl animate-blob" />
+        {/* Floating technical drawings */}
+        <BlueprintLines className="absolute left-4 top-28 hidden h-32 w-[420px] text-foreground/30 lg:block" />
+        <ShieldMark      className="absolute right-8  top-32 hidden h-40 w-40 text-accent/15 lg:block" />
       </div>
 
       <div className="container">
@@ -238,10 +242,10 @@ const Hero = () => {
                     <div className="mb-2 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 text-accent">
                       <s.icon className="h-4 w-4" />
                     </div>
-                    <div className="text-2xl font-bold tracking-tight sm:text-3xl">
+                    <div className="text-3xl font-display tracking-wider sm:text-4xl">
                       <Counter value={s.value} suffix={s.suffix} />
                     </div>
-                    <div className="text-xs text-muted-foreground">{s.label}</div>
+                    <div className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -256,19 +260,26 @@ const Hero = () => {
 const TrustedBy = () => {
   const list = [...TRUSTED, ...TRUSTED];
   return (
-    <section className="border-y border-border/60 bg-secondary/30 py-14">
+    <section className="relative border-y border-border bg-secondary/40 py-12">
+      {/* Top + bottom industrial stripes */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-stripes opacity-90" />
+      <div aria-hidden className="absolute inset-x-0 bottom-0 h-1 bg-stripes opacity-90" />
       <div className="container">
-        <p className="text-center text-sm font-medium uppercase tracking-widest text-muted-foreground">
-          Trusted by the Philippines&rsquo; most recognizable brands
-        </p>
-        <div className="relative mt-8 overflow-hidden mask-fade-r">
-          <div className="marquee flex w-max items-center gap-12 pr-12">
+        <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
+          <span className="h-px w-12 bg-accent" aria-hidden />
+          <p className="text-center font-display text-base tracking-[0.25em] text-foreground sm:text-lg">
+            TRUSTED BY THE PHILIPPINES&rsquo; MOST RECOGNIZABLE BRANDS
+          </p>
+          <span className="h-px w-12 bg-accent" aria-hidden />
+        </div>
+        <div className="relative mt-7 overflow-hidden mask-fade-r">
+          <div className="marquee flex w-max items-center gap-10 pr-10">
             {list.map((name, i) => (
               <div
                 key={`${name}-${i}`}
-                className="flex h-12 shrink-0 items-center gap-2.5 rounded-lg px-5 text-base font-semibold tracking-tight text-muted-foreground/80 hover:text-foreground transition-colors"
+                className="flex h-12 shrink-0 items-center gap-2.5 rounded-md border border-border/60 bg-background px-4 text-[15px] font-semibold tracking-tight text-foreground/85 hover:border-accent/60 hover:text-foreground transition-colors"
               >
-                <div className="h-7 w-7 rounded-md bg-gradient-to-br from-muted-foreground/30 to-muted-foreground/10" />
+                <span className="inline-block h-2 w-2 rotate-45 bg-accent" aria-hidden />
                 {name}
               </div>
             ))}
@@ -281,67 +292,112 @@ const TrustedBy = () => {
 
 const About = () => {
   return (
-    <Section
-      id="about"
-      eyebrow="About Us"
-      title="A signage story written over five decades."
-      subtitle="From a small Makati workshop in 1977 to the partner of choice for the country’s most iconic brands."
-    >
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
-        {/* Story */}
-        <motion.div {...fadeUp} className="lg:col-span-7">
-          <Card className="relative h-full overflow-hidden p-8 sm:p-10">
-            <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/10 blur-3xl" aria-hidden />
-            <Badge variant="secondary" className="rounded-full px-3 py-1 text-[11px] font-medium">Our Story</Badge>
-            <h3 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
-              How Answer Signs became a Philippine signage pioneer.
-            </h3>
-            <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-foreground/85">
-              <p>
-                With less than five painters, <span className="font-semibold text-foreground">Archie Trinidad</span> opened
-                <span className="font-semibold text-foreground"> Answer Advertising Associates in 1977</span> at 1078 Pasong Tamo St. (now Chino Roces), Makati. From hand-painting coco-cloth streamers and silkscreen printing, the team began pioneering thermo-forming acrylic — this paved the way to the acquisition of <span className="font-semibold text-foreground">Kodak Express</span> in the 80s Philippines.
-              </p>
-              <p>
-                Another prestigious account, <span className="font-semibold text-foreground">McDonald&rsquo;s</span>, was acquired in the mid-nineties. After almost 20 years of operations, the company incorporated itself and <span className="font-semibold text-foreground">Answer Advertising Corporation</span> was registered at the Securities and Exchange Commission.
-              </p>
-              <p>
-                <span className="font-semibold text-foreground">Answer Signs</span> eventually moved to Para&ntilde;aque, where the offices and factory are located today — continuing to craft signage for the country&rsquo;s most trusted brands.
-              </p>
-            </div>
+    <section id="about" className="relative isolate overflow-hidden py-24 sm:py-32">
+      {/* Background photo */}
+      <div aria-hidden className="absolute inset-0 -z-10">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/brand/mcdonalds.jpg"
+          alt=""
+          className="h-full w-full object-cover object-center scale-105"
+        />
+        {/* Layered overlays for legibility + brand tint */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#06101f]/92 via-[#06101f]/78 to-[#3a1605]/85" />
+        <div className="absolute inset-0 bg-blueprint opacity-[0.08]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,hsl(var(--brand-blue)/0.18),transparent_55%),radial-gradient(ellipse_at_bottom_right,hsl(var(--accent)/0.22),transparent_55%)]" />
+      </div>
 
-            <div className="mt-7 flex flex-wrap gap-2">
-              {['Thermo-formed acrylic', 'Channel letters', 'Architectural signage', 'Pylon & monument', 'LED & neon', 'Nationwide rollout'].map((t) => (
-                <Badge key={t} variant="secondary" className="rounded-full px-3 py-1 text-xs font-medium">
-                  {t}
-                </Badge>
-              ))}
-            </div>
-          </Card>
-        </motion.div>
+      {/* Top + bottom industrial stripe accents */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-stripes opacity-90" />
+      <div aria-hidden className="absolute inset-x-0 bottom-0 h-1 bg-stripes opacity-90" />
 
-        {/* Timeline */}
-        <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} className="lg:col-span-5">
-          <div className="relative pl-6">
-            <div aria-hidden className="absolute left-2 top-2 bottom-2 w-px bg-gradient-to-b from-accent via-border to-transparent" />
-            <ol className="space-y-6">
-              {TIMELINE.map((t, i) => (
-                <li key={t.year} className="relative">
-                  <span
-                    aria-hidden
-                    className="absolute -left-[18px] top-1.5 inline-flex h-3 w-3 items-center justify-center rounded-full border-2 border-background bg-accent ring-2 ring-accent/30"
-                  />
-                  <div className="flex items-baseline gap-3">
-                    <span className="text-sm font-bold tracking-tight text-accent">{t.year}</span>
-                    <span className="text-sm font-semibold tracking-tight text-foreground">{t.title}</span>
-                  </div>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t.text}</p>
-                </li>
-              ))}
-            </ol>
+      {/* Decorative blueprint */}
+      <BlueprintLines className="pointer-events-none absolute left-6 bottom-8 hidden h-40 w-[480px] text-white/30 lg:block" />
+      <ShieldMark className="pointer-events-none absolute right-8 top-12 hidden h-32 w-32 text-accent/30 lg:block" />
+
+      <div className="container relative">
+        {/* Header */}
+        <motion.div {...fadeUp} className="mx-auto max-w-3xl text-center text-white">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            About Us
+          </div>
+          <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+            A signage story written over <span className="text-orange-blue">five decades</span>.
+          </h2>
+          <p className="mt-4 text-balance text-base text-white/70 sm:text-lg">
+            From a small Makati workshop in 1977 to the partner of choice for the country&rsquo;s most iconic brands &mdash; like the McDonald&rsquo;s pylon above.
+          </p>
+          <div className="mt-3 text-[11px] font-medium uppercase tracking-[0.3em] text-white/50">
+            Pictured: McDonald&rsquo;s Drive-Thru pylon &amp; channel-letter facade &mdash; fabricated &amp; installed by Answer Signs
           </div>
         </motion.div>
+
+        <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-12">
+          {/* Story card */}
+          <motion.div {...fadeUp} className="lg:col-span-7">
+            <div className="relative h-full overflow-hidden rounded-2xl border border-white/15 bg-black/55 p-8 text-white backdrop-blur-xl sm:p-10">
+              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/20 blur-3xl" aria-hidden />
+              <div className="flex items-center gap-3">
+                <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[11px] font-medium tracking-wide text-white/90">
+                  Our Story
+                </span>
+                <span className="stamp text-[11px] text-accent">Est. 1977</span>
+              </div>
+              <h3 className="mt-5 text-2xl font-bold tracking-tight sm:text-3xl">
+                How Answer Signs became a Philippine signage pioneer.
+              </h3>
+              <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-white/85">
+                <p>
+                  With less than five painters, <span className="font-semibold text-white">Archie Trinidad</span> opened
+                  <span className="font-semibold text-white"> Answer Advertising Associates in 1977</span> at 1078 Pasong Tamo St. (now Chino Roces), Makati. From hand-painting coco-cloth streamers and silkscreen printing, the team began pioneering thermo-forming acrylic &mdash; this paved the way to the acquisition of <span className="font-semibold text-white">Kodak Express</span> in the 80s Philippines.
+                </p>
+                <p>
+                  Another prestigious account, <span className="font-semibold text-white">McDonald&rsquo;s</span>, was acquired in the mid-nineties. After almost 20 years of operations, the company incorporated itself and <span className="font-semibold text-white">Answer Advertising Corporation</span> was registered at the Securities and Exchange Commission.
+                </p>
+                <p>
+                  <span className="font-semibold text-white">Answer Signs</span> eventually moved to Para&ntilde;aque, where the offices and factory are located today &mdash; continuing to craft signage for the country&rsquo;s most trusted brands.
+                </p>
+              </div>
+
+              <div className="mt-7 flex flex-wrap gap-2">
+                {['Thermo-formed acrylic', 'Channel letters', 'Architectural signage', 'Pylon & monument', 'LED & neon', 'Nationwide rollout'].map((t) => (
+                  <span key={t} className="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-white/90">
+                    <span className="h-1 w-1 rounded-full bg-accent" />
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Timeline */}
+          <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} className="lg:col-span-5">
+            <div className="rounded-2xl border border-white/15 bg-black/40 p-7 text-white backdrop-blur-xl sm:p-8">
+              <div className="mb-5 flex items-baseline justify-between">
+                <div className="font-display text-2xl tracking-wider text-white">TIMELINE</div>
+                <div className="text-[10px] font-mono uppercase tracking-widest text-white/50">1977 &rarr; Today</div>
+              </div>
+              <div className="relative pl-6">
+                <div aria-hidden className="absolute left-2 top-2 bottom-2 w-px bg-gradient-to-b from-accent via-white/30 to-transparent" />
+                <ol className="space-y-5">
+                  {TIMELINE.map((t) => (
+                    <li key={t.year} className="relative">
+                      <span aria-hidden className="absolute -left-[18px] top-1.5 inline-flex h-3 w-3 items-center justify-center rounded-full border-2 border-black bg-accent ring-2 ring-accent/40" />
+                      <div className="flex items-baseline gap-3">
+                        <span className="font-display text-base tracking-wider text-accent">{t.year}</span>
+                        <span className="text-sm font-semibold tracking-tight text-white">{t.title}</span>
+                      </div>
+                      <p className="mt-1 text-[13px] leading-relaxed text-white/70">{t.text}</p>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </Section>
+    </section>
   );
 };
 
