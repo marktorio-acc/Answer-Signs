@@ -598,19 +598,60 @@ const Process = () => {
 
 const Contact = () => {
   const channels = [
-    { label: 'Email',     value: 'inquiry@answersigns.com', sub: 'We reply within 24 hours',   href: 'mailto:inquiry@answersigns.com?subject=New%20Signage%20Inquiry', Icon: Mail,          color: 'from-sky-500 to-blue-600' },
-    { label: 'Phone',     value: '+63 2 8821 1977',          sub: 'Mon–Fri · 8am–6pm PHT',     href: 'tel:+63288211977',                                                Icon: Phone,         color: 'from-emerald-500 to-teal-600' },
-    { label: 'WhatsApp',  value: 'Chat instantly',           sub: 'Usually replies in minutes', href: 'https://wa.me/63288211977?text=Hi%20Answer%20Signs%2C%20I%27d%20love%20to%20talk%20about%20a%20signage%20project.', Icon: MessageCircle, color: 'from-green-500 to-emerald-600' },
-    { label: 'Messenger', value: 'Facebook chat',            sub: 'Drop us a message',          href: 'https://m.me/answersigns',                                       Icon: Facebook,      color: 'from-blue-500 to-indigo-600' },
-    { label: 'LinkedIn',  value: 'Connect with us',          sub: 'See our team & projects',    href: 'https://www.linkedin.com/company/answer-signs',                  Icon: Linkedin,      color: 'from-sky-600 to-blue-700' },
-    { label: 'Book a site survey', value: 'Calendly · 30 min', sub: 'Find a time that works',   href: 'https://calendly.com/answersigns/site-survey',                   Icon: Calendar,      color: 'from-violet-500 to-purple-600' },
+    {
+      label: 'Email',
+      value: 'tom.trinidad@gmail.com',
+      sub: 'We reply within 24 hours',
+      href: 'mailto:tom.trinidad@gmail.com?subject=New%20Signage%20Inquiry',
+      Icon: Mail,
+      color: 'from-sky-500 to-blue-600',
+      copy: 'tom.trinidad@gmail.com',
+    },
+    {
+      label: 'Phone',
+      phones: [
+        { display: '+63 2 8824 6909', href: 'tel:+63288246909' },
+        { display: '+63 2 8824 6911', href: 'tel:+63288246911' },
+      ],
+      sub: 'Mon–Fri · 8am–6pm PHT',
+      Icon: Phone,
+      color: 'from-emerald-500 to-teal-600',
+    },
+    {
+      label: 'WhatsApp',
+      value: '+63 917 898 0418',
+      sub: 'Usually replies in minutes',
+      href: 'https://wa.me/639178980418?text=Hi%20Answer%20Signs%2C%20I%27d%20love%20to%20talk%20about%20a%20signage%20project.',
+      Icon: MessageCircle,
+      color: 'from-green-500 to-emerald-600',
+    },
+    {
+      label: 'Facebook',
+      value: '@answersigns',
+      sub: 'Follow our work & projects',
+      href: 'https://www.facebook.com/answersigns',
+      Icon: Facebook,
+      color: 'from-blue-500 to-indigo-600',
+    },
+    {
+      label: 'Book on Google Calendar',
+      value: 'Schedule a site survey',
+      sub: 'Opens Google Calendar',
+      href:
+        'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+        '&text=' + encodeURIComponent('Site Survey with Answer Signs') +
+        '&details=' + encodeURIComponent('Site survey & signage consultation with Answer Signs. Please share your location and any brand guidelines beforehand.') +
+        '&add=' + encodeURIComponent('tom.trinidad@gmail.com'),
+      Icon: Calendar,
+      color: 'from-violet-500 to-purple-600',
+    },
   ];
 
   return (
     <section id="contact" className="relative isolate overflow-hidden py-20 sm:py-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-        <div className="absolute left-1/2 top-20 h-[420px] w-[1000px] -translate-x-1/2 rounded-full bg-gradient-to-r from-accent/15 via-primary/10 to-accent/15 blur-3xl" />
+        <div className="absolute left-1/2 top-20 h-[420px] w-[1000px] -translate-x-1/2 rounded-full bg-gradient-to-r from-accent/15 via-brand-blue/10 to-accent/15 blur-3xl" />
       </div>
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
@@ -622,7 +663,7 @@ const Contact = () => {
             Ready to make your brand visible?
           </h2>
           <p className="mt-5 text-balance text-base text-muted-foreground sm:text-lg">
-            Pick your favorite channel — every button opens directly. Tell us about your project, location and brand guidelines, and we&rsquo;ll come back with a clear point of view, fast.
+            Pick your favorite channel &mdash; every button opens directly. Tell us about your project, location and brand guidelines, and we&rsquo;ll come back with a clear point of view, fast.
           </p>
           <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 text-xs font-medium text-accent">
             <span className="relative flex h-2 w-2">
@@ -634,40 +675,72 @@ const Contact = () => {
         </div>
 
         <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {channels.map((c, i) => (
-            <motion.a
-              key={c.label}
-              href={c.href}
-              target={c.href.startsWith('http') ? '_blank' : undefined}
-              rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              {...fadeUp}
-              transition={{ ...fadeUp.transition, delay: i * 0.04 }}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl"
-              onClick={() => {
-                if (c.label === 'Email') {
-                  try { navigator.clipboard?.writeText('inquiry@answersigns.com'); toast.success('Email copied to clipboard'); } catch (e) {}
-                }
-              }}
-            >
-              <div className={`absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br ${c.color} opacity-10 blur-2xl transition-opacity group-hover:opacity-20`} />
-              <div className="flex items-center justify-between">
-                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${c.color} text-white shadow-md`}>
-                  <c.Icon className="h-5 w-5" />
+          {channels.map((c, i) => {
+            const isMultiPhone = Array.isArray(c.phones);
+            const Wrapper = isMultiPhone ? motion.div : motion.a;
+            const wrapperProps = isMultiPhone
+              ? {}
+              : {
+                  href: c.href,
+                  target: c.href.startsWith('http') ? '_blank' : undefined,
+                  rel: c.href.startsWith('http') ? 'noopener noreferrer' : undefined,
+                  onClick: () => {
+                    if (c.copy) {
+                      try { navigator.clipboard?.writeText(c.copy); toast.success(`${c.label} copied to clipboard`); } catch (e) {}
+                    }
+                  },
+                };
+
+            return (
+              <Wrapper
+                key={c.label}
+                {...wrapperProps}
+                {...fadeUp}
+                transition={{ ...fadeUp.transition, delay: i * 0.04 }}
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl"
+              >
+                <div className={`absolute -right-12 -top-12 h-32 w-32 rounded-full bg-gradient-to-br ${c.color} opacity-10 blur-2xl transition-opacity group-hover:opacity-20`} />
+                <div className="flex items-center justify-between">
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${c.color} text-white shadow-md`}>
+                    <c.Icon className="h-5 w-5" />
+                  </div>
+                  {!isMultiPhone && (
+                    <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
+                  )}
                 </div>
-                <ArrowUpRight className="h-5 w-5 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
-              </div>
-              <div className="mt-5">
-                <div className="text-sm font-medium text-muted-foreground">{c.label}</div>
-                <div className="mt-1 text-lg font-semibold tracking-tight">{c.value}</div>
-                <div className="mt-1 text-xs text-muted-foreground">{c.sub}</div>
-              </div>
-            </motion.a>
-          ))}
+
+                {isMultiPhone ? (
+                  <div className="mt-5">
+                    <div className="text-sm font-medium text-muted-foreground">{c.label}</div>
+                    <div className="mt-2 space-y-1.5">
+                      {c.phones.map((p) => (
+                        <a
+                          key={p.href}
+                          href={p.href}
+                          className="group/phone flex items-center justify-between rounded-md hover:text-accent transition-colors"
+                        >
+                          <span className="text-base font-semibold tracking-tight">{p.display}</span>
+                          <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform group-hover/phone:-translate-y-0.5 group-hover/phone:translate-x-0.5 group-hover/phone:text-accent" />
+                        </a>
+                      ))}
+                    </div>
+                    <div className="mt-2 text-xs text-muted-foreground">{c.sub}</div>
+                  </div>
+                ) : (
+                  <div className="mt-5">
+                    <div className="text-sm font-medium text-muted-foreground">{c.label}</div>
+                    <div className="mt-1 text-lg font-semibold tracking-tight break-all">{c.value}</div>
+                    <div className="mt-1 text-xs text-muted-foreground">{c.sub}</div>
+                  </div>
+                )}
+              </Wrapper>
+            );
+          })}
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground">
-          <div className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /> Offices &amp; Factory · Para&ntilde;aque City, Metro Manila, Philippines</div>
-          <div>Or simply email us — we read every message personally.</div>
+          <div className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /> Offices &amp; Factory &middot; Para&ntilde;aque City, Metro Manila, Philippines</div>
+          <div>Or simply email us &mdash; we read every message personally.</div>
         </div>
       </div>
     </section>
@@ -713,9 +786,8 @@ const Footer = () => {
             </p>
             <div className="mt-6 flex items-center gap-2">
               {[
-                { Icon: Facebook,  href: 'https://facebook.com/answersigns',                label: 'Facebook' },
-                { Icon: Instagram, href: 'https://instagram.com/answersigns',               label: 'Instagram' },
-                { Icon: Linkedin,  href: 'https://www.linkedin.com/company/answer-signs',   label: 'LinkedIn' },
+                { Icon: Facebook,  href: 'https://www.facebook.com/answersigns',           label: 'Facebook' },
+                { Icon: Instagram, href: 'https://instagram.com/answersigns',              label: 'Instagram' },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -744,8 +816,9 @@ const Footer = () => {
           <div>
             <div className="text-sm font-semibold tracking-tight">Contact</div>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li><a href="mailto:inquiry@answersigns.com" className="hover:text-foreground">inquiry@answersigns.com</a></li>
-              <li><a href="tel:+63288211977" className="hover:text-foreground">+63 2 8821 1977</a></li>
+              <li><a href="mailto:tom.trinidad@gmail.com" className="hover:text-foreground">tom.trinidad@gmail.com</a></li>
+              <li><a href="tel:+63288246909" className="hover:text-foreground">+63 2 8824 6909</a></li>
+              <li><a href="tel:+63288246911" className="hover:text-foreground">+63 2 8824 6911</a></li>
               <li>Para&ntilde;aque City<br/>Metro Manila, Philippines</li>
             </ul>
           </div>

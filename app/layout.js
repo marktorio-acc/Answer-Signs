@@ -57,8 +57,8 @@ const jsonLd = {
   foundingDate: '1977',
   description:
     'Signage pioneer in the Philippines since 1977. Specializing in thermo-forming acrylic, lightboxes, channel letters, pylon and architectural signage for the country’s leading brands.',
-  email: 'inquiry@answersigns.com',
-  telephone: '+63-2-8821-1977',
+  email: 'tom.trinidad@gmail.com',
+  telephone: ['+63-2-8824-6909', '+63-2-8824-6911'],
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Parañaque City',
@@ -67,7 +67,6 @@ const jsonLd = {
   },
   areaServed: 'PH',
   sameAs: [
-    'https://www.linkedin.com/company/answer-signs',
     'https://www.facebook.com/answersigns',
   ],
   aggregateRating: {
