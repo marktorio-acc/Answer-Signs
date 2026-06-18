@@ -57,7 +57,7 @@ const jsonLd = {
   foundingDate: '1977',
   description:
     'Signage pioneer in the Philippines since 1977. Specializing in thermo-forming acrylic, lightboxes, channel letters, pylon and architectural signage for the country’s leading brands.',
-  email: 'tom.trinidad@gmail.com',
+  email: 'aac.answersigns@gmail.com',
   telephone: ['+63-2-8824-6909', '+63-2-8824-6911'],
   address: {
     '@type': 'PostalAddress',

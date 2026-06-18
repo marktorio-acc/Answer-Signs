@@ -600,12 +600,12 @@ const Contact = () => {
   const channels = [
     {
       label: 'Email',
-      value: 'tom.trinidad@gmail.com',
+      value: 'aac.answersigns@gmail.com',
       sub: 'We reply within 24 hours',
-      href: 'mailto:tom.trinidad@gmail.com?subject=New%20Signage%20Inquiry',
+      href: 'mailto:aac.answersigns@gmail.com?subject=New%20Signage%20Inquiry',
       Icon: Mail,
       color: 'from-sky-500 to-blue-600',
-      copy: 'tom.trinidad@gmail.com',
+      copy: 'aac.answersigns@gmail.com',
     },
     {
       label: 'Phone',
@@ -641,7 +641,7 @@ const Contact = () => {
         'https://calendar.google.com/calendar/render?action=TEMPLATE' +
         '&text=' + encodeURIComponent('Site Survey with Answer Signs') +
         '&details=' + encodeURIComponent('Site survey & signage consultation with Answer Signs. Please share your location and any brand guidelines beforehand.') +
-        '&add=' + encodeURIComponent('tom.trinidad@gmail.com'),
+        '&add=' + encodeURIComponent('aac.answersigns@gmail.com'),
       Icon: Calendar,
       color: 'from-violet-500 to-purple-600',
     },
@@ -816,7 +816,7 @@ const Footer = () => {
           <div>
             <div className="text-sm font-semibold tracking-tight">Contact</div>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li><a href="mailto:tom.trinidad@gmail.com" className="hover:text-foreground">tom.trinidad@gmail.com</a></li>
+              <li><a href="mailto:aac.answersigns@gmail.com" className="hover:text-foreground">aac.answersigns@gmail.com</a></li>
               <li><a href="tel:+63288246909" className="hover:text-foreground">+63 2 8824 6909</a></li>
               <li><a href="tel:+63288246911" className="hover:text-foreground">+63 2 8824 6911</a></li>
               <li>Para&ntilde;aque City<br/>Metro Manila, Philippines</li>
