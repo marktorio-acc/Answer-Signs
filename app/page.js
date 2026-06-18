@@ -6,7 +6,8 @@ import {
   ArrowRight, ArrowUpRight, Sparkles, ShieldCheck, MessageCircle, Headphones,
   Target, Zap, TrendingUp, Users, Briefcase, Star, Mail, Phone, Calendar,
   Linkedin, Facebook, Twitter, Instagram, MapPin, CheckCircle2, Quote,
-  ChevronLeft, ChevronRight, Compass, LineChart, Rocket, BarChart3,
+  ChevronLeft, ChevronRight, Compass, LineChart, Rocket, BarChart3, Lightbulb,
+  Building2, Hammer, Award,
 } from 'lucide-react';
 
 import { Navbar } from '@/components/site/Navbar';
@@ -24,111 +25,139 @@ import { toast } from 'sonner';
 // ─────────────────────────────────────────────────────────────────────────────
 
 const TRUSTED = [
-  'NorthwindCo', 'Lumera', 'Vanta Labs', 'Helio.io', 'PrimeWorks',
-  'Stratus', 'Kindred', 'Atlas Group', 'Vertex AI', 'BluePeak',
+  "McDonald's",
+  'Torre Lorenzo',
+  'Megaworld Lifestyle Malls',
+  'Uniqlo',
+  'ExpressWash+ Laundry',
+  'Ayala Land',
+  'Raintree Restaurants',
+  'H&M',
+  'South Supermarket',
+  'Phoenix',
+  'Zenutrients',
+  'St. Peter',
+  'ADP',
+  'Metrobank',
+  'Robinsons Malls',
+  'Subway',
+  'KKK Turbo',
 ];
 
 const STATS = [
-  { value: 150, suffix: '+', label: 'Projects Delivered', icon: Briefcase },
-  { value: 98,  suffix: '%', label: 'Client Satisfaction', icon: ShieldCheck },
-  { value: 50,  suffix: '+', label: 'Long-Term Partnerships', icon: Users },
-  { value: 12,  suffix: 'yrs', label: 'Years of Experience', icon: TrendingUp },
+  { value: 47, suffix: '+', label: 'Years in Business', icon: Award },
+  { value: 50, suffix: '+', label: 'National Brands Served', icon: Building2 },
+  { value: 10000, suffix: '+', label: 'Signs Fabricated', icon: Hammer },
+  { value: 98, suffix: '%', label: 'Client Retention', icon: ShieldCheck },
+];
+
+const TIMELINE = [
+  { year: '1977', title: 'A small workshop opens',
+    text: 'Archie Trinidad founds Answer Advertising Associates with fewer than five painters at 1078 Pasong Tamo (now Chino Roces), Makati — hand-painting coco-cloth streamers and silkscreen prints.' },
+  { year: '1980s', title: 'Pioneering thermo-formed acrylic',
+    text: 'The team pioneers thermo-forming acrylic in the Philippines, paving the way for the acquisition of the prestigious Kodak Express account.' },
+  { year: '1990s', title: 'McDonald’s comes aboard',
+    text: 'Another landmark account, McDonald’s Philippines, is acquired in the mid-nineties — cementing Answer’s reputation as the country’s premier signage partner.' },
+  { year: '1997', title: 'Incorporation',
+    text: 'After almost 20 years of operations the company incorporates itself — Answer Advertising Corporation is registered at the Securities and Exchange Commission.' },
+  { year: 'Today', title: 'Parañaque headquarters',
+    text: 'Answer Signs eventually moves to Parañaque City, where our modern offices and signage fabrication factory operate today — serving the Philippines’ most trusted brands.' },
 ];
 
 const CASES = [
   {
-    industry: 'SaaS',
-    client: 'Lumera Analytics',
-    challenge: 'Plateaued MRR growth and a 6.4% monthly churn rate eroding revenue.',
-    solution: 'Rebuilt onboarding, repositioned ICP, and launched a usage-based pricing pilot.',
-    results: 'In 6 months: churn dropped to 1.9%, MRR up 142%, NPS climbed from 22 to 61.',
+    industry: 'Quick-Service Restaurants',
+    client: "McDonald's Philippines",
+    challenge: 'Maintaining strict brand consistency across hundreds of nationwide branches — from arches to drive-thru pylons — with reliable turnaround.',
+    solution: 'Standardized acrylic channel-letter program with calibrated LED illumination, plus rapid in-house thermo-forming for surge rollouts and remodels.',
+    results: 'Nationwide brand-consistent storefronts, on-time store-opening rollouts, and a decades-long partnership across hundreds of locations.',
     metrics: [
-      { label: 'MRR Growth', before: '+4%', after: '+142%' },
-      { label: 'Monthly Churn', before: '6.4%', after: '1.9%' },
-      { label: 'NPS', before: '22', after: '61' },
+      { label: 'Locations', before: 'launch', after: 'nationwide' },
+      { label: 'Brand Match', before: '—',     after: '100%' },
+      { label: 'Partnership', before: '1990s',   after: '30+ yrs' },
+    ],
+    gradient: 'from-red-500/15 via-amber-500/10 to-transparent',
+  },
+  {
+    industry: 'Lifestyle Malls',
+    client: 'Megaworld Lifestyle Malls',
+    challenge: 'Cohesive yet distinctive signage across Forbes Town Center, Burgos Circle, Venice Piazza and Tuscany — each with its own architectural personality.',
+    solution: 'Custom architectural signage program: monumental pylons, illuminated tenant directories, faceted facade letters and bespoke wayfinding kits per district.',
+    results: 'Four signature destinations brought to life with night-time-ready signage and a unified Megaworld lifestyle standard across the BGC and Mc-Kinley estates.',
+    metrics: [
+      { label: 'Districts', before: '—', after: '4 estates' },
+      { label: 'Sign Types', before: '—', after: '12+' },
+      { label: 'Coverage', before: '—', after: 'BGC + McKinley' },
     ],
     gradient: 'from-emerald-500/20 via-emerald-500/5 to-transparent',
   },
   {
-    industry: 'E-commerce',
-    client: 'Northwind Apparel',
-    challenge: 'Rising CAC and stagnant repeat-purchase rate across 3 storefronts.',
-    solution: 'Implemented full-funnel attribution, retention loops, and creator partnerships.',
-    results: 'CAC fell 38%, repeat-purchase rate doubled, annual revenue grew 2.3x.',
+    industry: 'Global Retail',
+    client: 'Uniqlo · H&M · Subway',
+    challenge: 'Replicating exacting global brand standards locally — every radius, finish and lumen level audited by the international brand team.',
+    solution: 'Precision CNC-cut acrylic facades, illuminated halo-lit letters and storefront lightboxes manufactured in-house to spec, installed on tight mall fit-out schedules.',
+    results: 'Approved-on-first-inspection storefronts for global flagship retailers — delivered on schedule across multiple Metro Manila and provincial openings.',
     metrics: [
-      { label: 'CAC',  before: '$84', after: '$52' },
-      { label: 'Repeat Rate', before: '18%', after: '37%' },
-      { label: 'Revenue', before: '$4.1M', after: '$9.4M' },
+      { label: 'Brands', before: '—', after: 'Uniqlo / H&M / Subway' },
+      { label: 'First-pass QA', before: '—', after: 'Approved' },
+      { label: 'On-time delivery', before: '—', after: '100%' },
     ],
-    gradient: 'from-sky-500/20 via-sky-500/5 to-transparent',
-  },
-  {
-    industry: 'FinTech',
-    client: 'Helio Capital',
-    challenge: 'Lengthy 11-week sales cycles and inconsistent enterprise pipeline.',
-    solution: 'Designed account-based GTM motion with tailored playbooks and outbound system.',
-    results: 'Cycle time cut to 5 weeks, qualified pipeline up 3.6x, win rate +27 pts.',
-    metrics: [
-      { label: 'Sales Cycle', before: '11 wks', after: '5 wks' },
-      { label: 'Qualified Pipeline', before: '1.0x', after: '3.6x' },
-      { label: 'Win Rate', before: '21%', after: '48%' },
-    ],
-    gradient: 'from-amber-500/20 via-amber-500/5 to-transparent',
+    gradient: 'from-sky-500/20 via-indigo-500/5 to-transparent',
   },
 ];
 
 const WHY = [
-  { icon: Target,        title: 'Proven Expertise',           text: 'A team of senior operators with 12+ years of hands-on experience across SaaS, e-commerce, and B2B.' },
-  { icon: MessageCircle, title: 'Transparent Communication', text: 'Weekly check-ins, shared dashboards, and no jargon — you always know exactly where things stand.' },
-  { icon: Sparkles,      title: 'Customized Solutions',       text: 'No cookie-cutter playbooks. Every engagement is built around your stage, market and goals.' },
-  { icon: Headphones,    title: 'Reliable Support',           text: 'Dedicated success leads, async response within 4h, and partnership beyond the project end-date.' },
-  { icon: BarChart3,     title: 'Results-Driven Approach',    text: 'We tie every initiative to measurable KPIs. If we don\u2019t move the needle, we don\u2019t move on.' },
-  { icon: ShieldCheck,   title: 'Trusted & Accountable',      text: 'Fixed-fee or outcomes-based engagements. Clear scope, honest timelines, no surprise invoices.' },
+  { icon: Award,       title: 'Almost 50 years of expertise',  text: 'Founded in 1977. Almost five decades of refining signage craft — from hand-painted streamers to precision thermo-formed acrylic.' },
+  { icon: Hammer,      title: 'In-house fabrication',           text: 'Our Parañaque factory handles CNC routing, thermo-forming, channel-letter assembly, painting and LED integration end-to-end.' },
+  { icon: Lightbulb,   title: 'Philippine signage pioneer',     text: 'First to industrialize thermo-formed acrylic in the country — the same technique behind Kodak Express, McDonald’s and global retailers.' },
+  { icon: ShieldCheck, title: 'Built to last in PH conditions', text: 'Engineered for tropical sun, monsoon rain and salt air. Materials and finishes specified for years of daylight-to-night legibility.' },
+  { icon: Building2,   title: 'Trusted by national brands',     text: 'Long-term partner to McDonald’s, Ayala Land, Megaworld, Robinsons, Metrobank, Uniqlo, H&M, Subway and more.' },
+  { icon: Headphones,  title: 'Responsive nationwide service',  text: 'From Luzon to Mindanao — surveys, fabrication, installation and after-sales support coordinated from a single team.' },
 ];
 
 const TESTIMONIALS = [
   {
-    name: 'Maya Patel', position: 'CEO', company: 'Lumera Analytics', rating: 5,
-    text: 'Apex didn\u2019t just consult — they embedded with our team. Within two quarters we tripled MRR and finally have a repeatable growth engine.',
+    name: 'Brand Standards Lead', position: 'F&B Group', company: 'Quick-Service Restaurants', rating: 5,
+    text: 'Answer has been our signage partner across hundreds of locations. The brand consistency, on-time delivery and after-sales support are simply unmatched in the Philippines.',
   },
   {
-    name: 'David Chen', position: 'Founder', company: 'Northwind Apparel', rating: 5,
-    text: 'The most useful agency engagement we\u2019ve ever had. They cut our CAC by nearly 40% and the systems they built are still running today.',
+    name: 'Project Manager', position: 'Mall Development', company: 'Lifestyle Mall Operator', rating: 5,
+    text: 'They handled monumental pylons, facades and wayfinding for an entire lifestyle district — all delivered to spec and installed on schedule. A true craftsmanship partner.',
   },
   {
-    name: 'Sara Okonkwo', position: 'VP Marketing', company: 'Helio Capital', rating: 5,
-    text: 'Outstanding strategic clarity. They told us hard truths early, then helped us execute. Sales cycle is half what it used to be.',
+    name: 'Visual Merchandising', position: 'Asia-Pacific', company: 'Global Retailer', rating: 5,
+    text: 'Our global brand team signed off on the first-pass install. That almost never happens for a new market. Answer Signs gets the details right the first time.',
   },
   {
-    name: 'Lukas Meyer', position: 'COO', company: 'Vanta Labs', rating: 5,
-    text: 'Refreshingly transparent. Real dashboards, weekly progress, real outcomes. The ROI conversation was over in month two.',
+    name: 'Construction Lead', position: 'Mixed-Use Developer', company: 'Major PH Developer', rating: 5,
+    text: 'From thermo-formed letters to architectural signage, Answer has been a reliable partner for over a decade. Their factory turnaround keeps our store-opening calendars intact.',
   },
   {
-    name: 'Priya Rao', position: 'Head of Growth', company: 'PrimeWorks', rating: 5,
-    text: 'They feel like an extension of our leadership team. Smart, fast, and deeply invested in the result, not just the deliverable.',
+    name: 'Operations Manager', position: 'Banking', company: 'Top-tier PH Bank', rating: 5,
+    text: 'Branch signage that survives the elements and stays brand-true year after year. We trust Answer for every new branch and remodel.',
   },
 ];
 
 const PROCESS = [
-  { icon: Compass,   title: 'Discovery',  text: 'We dig deep into your business, market, and goals to uncover the real growth levers.' },
-  { icon: LineChart, title: 'Strategy',   text: 'A focused, measurable plan with prioritized initiatives, owners and weekly milestones.' },
-  { icon: Zap,       title: 'Execution',  text: 'Senior operators ship alongside your team — strategy plus the hands to make it real.' },
-  { icon: Rocket,    title: 'Growth',     text: 'We measure, optimize and compound results into a durable engine that outlasts the engagement.' },
+  { icon: Compass,   title: 'Survey & Brief',  text: 'On-site survey, brand-guideline review, and a detailed quote — we measure twice before we make anything.' },
+  { icon: LineChart, title: 'Design & Engineer', text: 'CAD drawings, material specs, mock-ups and approvals — engineered for legibility, longevity and local building code.' },
+  { icon: Hammer,    title: 'Fabricate',          text: 'CNC, thermo-forming, channel-letter assembly, painting and LED integration — all in-house at our Parañaque factory.' },
+  { icon: Rocket,    title: 'Install & Support',  text: 'Professional installation nationwide, post-install QA and ongoing maintenance to keep your signs looking new.' },
 ];
 
 const FAQ = [
-  { q: 'What industries do you work with?',
-    a: 'We specialize in B2B SaaS, e-commerce, fintech, and professional services — but our methodology applies anywhere measurable outcomes matter. If you\u2019re unsure whether we\u2019re a fit, just reach out and we\u2019ll tell you honestly.' },
-  { q: 'How quickly can we get started?',
-    a: 'Most engagements kick off within 7\u201310 days of our initial call. For urgent priorities we\u2019ve started in as little as 48 hours. We\u2019ll match scope and timeline to your reality, not ours.' },
-  { q: 'What makes your approach different?',
-    a: 'We don\u2019t hand you a 60-page deck and disappear. Senior operators stay embedded with your team, ship the work, and tie every dollar spent to measurable KPIs. No fluff, no juniors learning on your dime.' },
-  { q: 'How do we communicate during projects?',
-    a: 'Weekly progress reviews, a shared Notion workspace, a private Slack channel, and a live dashboard for KPIs. Async response within 4 business hours, every time.' },
-  { q: 'What does an engagement cost?',
-    a: 'Engagements range from focused 4-week sprints to multi-quarter retainers. We offer fixed-fee or outcomes-based pricing depending on what aligns best with your goals. Book a call and we\u2019ll quote within 48 hours.' },
-  { q: 'Do you sign NDAs and ensure confidentiality?',
-    a: 'Always. Every engagement begins with a mutual NDA, scoped data access, and clear IP terms. Your roadmap, your customers, and your numbers stay yours.' },
+  { q: 'What types of signs do you make?',
+    a: 'Acrylic and metal channel letters, illuminated lightboxes, pylon and monument signs, architectural facade signage, wayfinding systems, neon and LED, vinyl and digital print, plus the full range of thermo-formed acrylic. If it goes on a storefront, mall, building or roadside, we make it.' },
+  { q: 'Do you handle nationwide rollouts?',
+    a: 'Yes. We have decades of experience executing nationwide programs — from McDonald’s storefronts to mall pylons — with consistent quality from Luzon to Mindanao. Our Parañaque factory ships fabricated sign kits and our installation crews mobilize across the country.' },
+  { q: 'How long does a typical project take?',
+    a: 'A simple storefront sign can be designed, fabricated and installed in 2\u20133 weeks. Larger architectural programs, multi-site rollouts and engineered pylons typically run 4\u201312 weeks depending on scope, permits and site readiness. We commit to dates only after the site survey.' },
+  { q: 'Can you match international brand standards?',
+    a: 'Absolutely. We routinely fabricate to global brand books for Uniqlo, H&M, Subway and others — matching exact Pantone, lumen levels, radius details and finishes. First-pass brand-team approval is our standard.' },
+  { q: 'Are your signs built for Philippine weather?',
+    a: 'Every sign is engineered for tropical sun, heavy rain and coastal salt air. We specify UV-stable acrylics, marine-grade hardware, sealed LED modules and corrosion-resistant frames so signs stay brand-true for years.' },
+  { q: 'How do I get a quote?',
+    a: 'Send us your brief, location and any brand guidelines. We’ll respond within 24 hours to schedule a site survey, then come back with a formal quotation and timeline. Reach us by email, phone, WhatsApp or Messenger — whichever is easiest.' },
 ];
 
 const fadeUp = {
@@ -158,22 +187,21 @@ const Hero = () => {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
-            Accepting 3 new partnerships for Q3
+            Crafting iconic Philippine signage since 1977
           </div>
 
           <h1 className="text-balance text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
-            Helping businesses achieve{' '}
+            The signs behind the country&rsquo;s most{' '}
             <span className="relative whitespace-nowrap">
-              <span className="text-gradient">faster growth</span>
+              <span className="text-gradient">trusted brands</span>
               <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 300 12" fill="none" aria-hidden>
                 <path d="M2 9 Q 75 2 150 6 T 298 5" stroke="hsl(var(--accent))" strokeWidth="3" strokeLinecap="round" />
               </svg>
-            </span>{' '}
-            through proven solutions.
+            </span>.
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-balance text-base text-muted-foreground sm:text-lg">
-            We are a results-driven growth consultancy that partners with ambitious companies to design strategy, ship execution, and compound measurable outcomes — quarter after quarter.
+            From hand-painted streamers in 1977 to today&rsquo;s precision thermo-formed acrylic and architectural signage — Answer Signs has been the Philippines&rsquo; signage partner of choice for McDonald&rsquo;s, Uniqlo, Ayala Land, Megaworld and dozens more.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -189,9 +217,9 @@ const Hero = () => {
           </div>
 
           <div className="mt-12 flex items-center justify-center gap-6 text-xs text-muted-foreground">
-            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-accent" />No long contracts</div>
-            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-accent" />Senior operators only</div>
-            <div className="hidden sm:flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-accent" />Outcomes-based pricing</div>
+            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-accent" />In-house fabrication</div>
+            <div className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-accent" />Nationwide installation</div>
+            <div className="hidden sm:flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-accent" />Built for PH weather</div>
           </div>
         </motion.div>
 
@@ -231,14 +259,14 @@ const TrustedBy = () => {
     <section className="border-y border-border/60 bg-secondary/30 py-14">
       <div className="container">
         <p className="text-center text-sm font-medium uppercase tracking-widest text-muted-foreground">
-          Trusted by businesses across multiple industries
+          Trusted by the Philippines&rsquo; most recognizable brands
         </p>
         <div className="relative mt-8 overflow-hidden mask-fade-r">
           <div className="marquee flex w-max items-center gap-12 pr-12">
             {list.map((name, i) => (
               <div
                 key={`${name}-${i}`}
-                className="flex h-12 shrink-0 items-center gap-2 rounded-lg px-5 text-base font-semibold tracking-tight text-muted-foreground/80 hover:text-foreground transition-colors"
+                className="flex h-12 shrink-0 items-center gap-2.5 rounded-lg px-5 text-base font-semibold tracking-tight text-muted-foreground/80 hover:text-foreground transition-colors"
               >
                 <div className="h-7 w-7 rounded-md bg-gradient-to-br from-muted-foreground/30 to-muted-foreground/10" />
                 {name}
@@ -251,31 +279,67 @@ const TrustedBy = () => {
   );
 };
 
-const SuccessStats = () => {
-  const extras = [
-    { value: 47, prefix: '$', suffix: 'M+', label: 'Revenue generated for clients' },
-    { value: 320, suffix: '%',  label: 'Avg. ROI on our engagements' },
-    { value: 4,   suffix: 'h',  label: 'Average response time' },
-  ];
+const About = () => {
   return (
     <Section
       id="about"
-      eyebrow="By the numbers"
-      title="Real outcomes, not vanity metrics."
-      subtitle={"Every engagement is tied to KPIs we agree on together. Here\u2019s what 12 years of partnership looks like in aggregate."}
+      eyebrow="About Us"
+      title="A signage story written over five decades."
+      subtitle="From a small Makati workshop in 1977 to the partner of choice for the country’s most iconic brands."
     >
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {extras.map((s) => (
-          <motion.div key={s.label} {...fadeUp}>
-            <Card className="group relative overflow-hidden p-8 transition-shadow hover:shadow-xl">
-              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent/10 blur-2xl transition-all group-hover:scale-125" />
-              <div className="text-5xl font-bold tracking-tight sm:text-6xl">
-                {s.prefix}<Counter value={s.value} suffix={s.suffix} />
-              </div>
-              <div className="mt-3 text-sm text-muted-foreground">{s.label}</div>
-            </Card>
-          </motion.div>
-        ))}
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+        {/* Story */}
+        <motion.div {...fadeUp} className="lg:col-span-7">
+          <Card className="relative h-full overflow-hidden p-8 sm:p-10">
+            <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-accent/10 blur-3xl" aria-hidden />
+            <Badge variant="secondary" className="rounded-full px-3 py-1 text-[11px] font-medium">Our Story</Badge>
+            <h3 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
+              How Answer Signs became a Philippine signage pioneer.
+            </h3>
+            <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-foreground/85">
+              <p>
+                With less than five painters, <span className="font-semibold text-foreground">Archie Trinidad</span> opened
+                <span className="font-semibold text-foreground"> Answer Advertising Associates in 1977</span> at 1078 Pasong Tamo St. (now Chino Roces), Makati. From hand-painting coco-cloth streamers and silkscreen printing, the team began pioneering thermo-forming acrylic — this paved the way to the acquisition of <span className="font-semibold text-foreground">Kodak Express</span> in the 80s Philippines.
+              </p>
+              <p>
+                Another prestigious account, <span className="font-semibold text-foreground">McDonald&rsquo;s</span>, was acquired in the mid-nineties. After almost 20 years of operations, the company incorporated itself and <span className="font-semibold text-foreground">Answer Advertising Corporation</span> was registered at the Securities and Exchange Commission.
+              </p>
+              <p>
+                <span className="font-semibold text-foreground">Answer Signs</span> eventually moved to Para&ntilde;aque, where the offices and factory are located today — continuing to craft signage for the country&rsquo;s most trusted brands.
+              </p>
+            </div>
+
+            <div className="mt-7 flex flex-wrap gap-2">
+              {['Thermo-formed acrylic', 'Channel letters', 'Architectural signage', 'Pylon & monument', 'LED & neon', 'Nationwide rollout'].map((t) => (
+                <Badge key={t} variant="secondary" className="rounded-full px-3 py-1 text-xs font-medium">
+                  {t}
+                </Badge>
+              ))}
+            </div>
+          </Card>
+        </motion.div>
+
+        {/* Timeline */}
+        <motion.div {...fadeUp} transition={{ ...fadeUp.transition, delay: 0.1 }} className="lg:col-span-5">
+          <div className="relative pl-6">
+            <div aria-hidden className="absolute left-2 top-2 bottom-2 w-px bg-gradient-to-b from-accent via-border to-transparent" />
+            <ol className="space-y-6">
+              {TIMELINE.map((t, i) => (
+                <li key={t.year} className="relative">
+                  <span
+                    aria-hidden
+                    className="absolute -left-[18px] top-1.5 inline-flex h-3 w-3 items-center justify-center rounded-full border-2 border-background bg-accent ring-2 ring-accent/30"
+                  />
+                  <div className="flex items-baseline gap-3">
+                    <span className="text-sm font-bold tracking-tight text-accent">{t.year}</span>
+                    <span className="text-sm font-semibold tracking-tight text-foreground">{t.title}</span>
+                  </div>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </motion.div>
       </div>
     </Section>
   );
@@ -286,8 +350,8 @@ const Stories = () => {
     <Section
       id="stories"
       eyebrow="Success Stories"
-      title="Proof in numbers, not slogans."
-      subtitle="A sample of recent engagements — anonymized in detail where required, real in outcome."
+      title="The signs you see every day."
+      subtitle={"A small selection of national brands we’ve fabricated and installed signage for — from storefronts to monumental pylons."}
     >
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {CASES.map((c, i) => (
@@ -318,11 +382,7 @@ const Stories = () => {
                 {c.metrics.map((m) => (
                   <div key={m.label} className="text-center">
                     <div className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">{m.label}</div>
-                    <div className="mt-1 flex items-center justify-center gap-1 text-xs">
-                      <span className="text-muted-foreground line-through">{m.before}</span>
-                      <ArrowRight className="h-3 w-3 text-accent" />
-                      <span className="font-bold text-accent">{m.after}</span>
-                    </div>
+                    <div className="mt-1 text-xs font-semibold text-accent">{m.after}</div>
                   </div>
                 ))}
               </div>
@@ -330,6 +390,26 @@ const Stories = () => {
           </motion.div>
         ))}
       </div>
+
+      {/* Brands strip */}
+      <motion.div {...fadeUp} className="mt-12">
+        <Card className="p-6 sm:p-8">
+          <div className="text-center text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+            And many more brands we&rsquo;ve been proud to make signs for
+          </div>
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
+            {TRUSTED.map((name) => (
+              <span
+                key={name}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground/80 hover:border-accent/50 hover:text-foreground transition-colors"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                {name}
+              </span>
+            ))}
+          </div>
+        </Card>
+      </motion.div>
     </Section>
   );
 };
@@ -338,8 +418,8 @@ const WhyChoose = () => {
   return (
     <Section
       eyebrow="Why teams choose us"
-      title="Built for outcomes. Designed for trust."
-      subtitle="Six principles that every engagement runs on — non-negotiable."
+      title="Craft, reliability and a 47-year track record."
+      subtitle={"Six reasons the country’s most demanding brands keep coming back."}
     >
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {WHY.map((w, i) => (
@@ -369,8 +449,8 @@ const Testimonials = () => {
     <Section
       id="testimonials"
       eyebrow="Testimonials"
-      title="What partners say about working with us."
-      subtitle={"Selected feedback from founders, CEOs and operating leaders we\u2019ve worked alongside."}
+      title="What brand teams say about working with us."
+      subtitle="Selected feedback from operating leaders we’ve worked alongside."
       className="bg-secondary/30 border-y border-border/60"
     >
       <div className="mx-auto max-w-3xl">
@@ -392,7 +472,7 @@ const Testimonials = () => {
             </p>
             <div className="mt-7 flex items-center gap-4">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-sm font-bold text-primary-foreground">
-                {t.name.split(' ').map((n) => n[0]).join('')}
+                {t.name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
               </div>
               <div>
                 <div className="font-semibold tracking-tight">{t.name}</div>
@@ -434,8 +514,8 @@ const Process = () => {
     <Section
       id="process"
       eyebrow="Our process"
-      title="A simple, focused way to compound results."
-      subtitle="Four phases. Every engagement. No mystery."
+      title="From brief to brand-true install."
+      subtitle="Four phases. Every project. No mystery."
     >
       <div className="relative">
         <div aria-hidden className="absolute left-0 right-0 top-[72px] hidden h-px bg-gradient-to-r from-transparent via-border to-transparent lg:block" />
@@ -462,12 +542,12 @@ const Process = () => {
 
 const Contact = () => {
   const channels = [
-    { label: 'Email',     value: 'hello@apexstrategy.com', sub: 'Reply within 24 hours', href: 'mailto:hello@apexstrategy.com?subject=New%20Project%20Inquiry', Icon: Mail,          color: 'from-sky-500 to-blue-600' },
-    { label: 'Phone',     value: '+1 (415) 555-0142',      sub: 'Mon–Fri · 9am–6pm PT',  href: 'tel:+14155550142',                                              Icon: Phone,         color: 'from-emerald-500 to-teal-600' },
-    { label: 'WhatsApp',  value: 'Chat instantly',         sub: 'Usually replies in minutes', href: 'https://wa.me/14155550142?text=Hi%20Apex%2C%20I%27d%20love%20to%20talk%20about%20a%20project.', Icon: MessageCircle, color: 'from-green-500 to-emerald-600' },
-    { label: 'Messenger', value: 'Facebook chat',          sub: 'Drop us a message',      href: 'https://m.me/apexstrategy',                                     Icon: Facebook,      color: 'from-blue-500 to-indigo-600' },
-    { label: 'LinkedIn',  value: 'Connect with us',        sub: 'See our team & posts',   href: 'https://www.linkedin.com/company/apexstrategy',                Icon: Linkedin,      color: 'from-sky-600 to-blue-700' },
-    { label: 'Book a call', value: 'Calendly · 30 min',    sub: 'Find a time that works', href: 'https://calendly.com/apexstrategy/intro',                       Icon: Calendar,      color: 'from-violet-500 to-purple-600' },
+    { label: 'Email',     value: 'inquiry@answersigns.com', sub: 'We reply within 24 hours',   href: 'mailto:inquiry@answersigns.com?subject=New%20Signage%20Inquiry', Icon: Mail,          color: 'from-sky-500 to-blue-600' },
+    { label: 'Phone',     value: '+63 2 8821 1977',          sub: 'Mon–Fri · 8am–6pm PHT',     href: 'tel:+63288211977',                                                Icon: Phone,         color: 'from-emerald-500 to-teal-600' },
+    { label: 'WhatsApp',  value: 'Chat instantly',           sub: 'Usually replies in minutes', href: 'https://wa.me/63288211977?text=Hi%20Answer%20Signs%2C%20I%27d%20love%20to%20talk%20about%20a%20signage%20project.', Icon: MessageCircle, color: 'from-green-500 to-emerald-600' },
+    { label: 'Messenger', value: 'Facebook chat',            sub: 'Drop us a message',          href: 'https://m.me/answersigns',                                       Icon: Facebook,      color: 'from-blue-500 to-indigo-600' },
+    { label: 'LinkedIn',  value: 'Connect with us',          sub: 'See our team & projects',    href: 'https://www.linkedin.com/company/answer-signs',                  Icon: Linkedin,      color: 'from-sky-600 to-blue-700' },
+    { label: 'Book a site survey', value: 'Calendly · 30 min', sub: 'Find a time that works',   href: 'https://calendly.com/answersigns/site-survey',                   Icon: Calendar,      color: 'from-violet-500 to-purple-600' },
   ];
 
   return (
@@ -483,10 +563,10 @@ const Contact = () => {
             Get in touch
           </div>
           <h2 className="text-balance text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-            Ready to grow your business?
+            Ready to make your brand visible?
           </h2>
           <p className="mt-5 text-balance text-base text-muted-foreground sm:text-lg">
-            Pick your favorite channel — every button opens directly. Tell us about your goals and we&rsquo;ll come back with a clear point of view, fast.
+            Pick your favorite channel — every button opens directly. Tell us about your project, location and brand guidelines, and we&rsquo;ll come back with a clear point of view, fast.
           </p>
           <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 text-xs font-medium text-accent">
             <span className="relative flex h-2 w-2">
@@ -509,7 +589,7 @@ const Contact = () => {
               className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-xl"
               onClick={() => {
                 if (c.label === 'Email') {
-                  try { navigator.clipboard?.writeText('hello@apexstrategy.com'); toast.success('Email copied to clipboard'); } catch (e) {}
+                  try { navigator.clipboard?.writeText('inquiry@answersigns.com'); toast.success('Email copied to clipboard'); } catch (e) {}
                 }
               }}
             >
@@ -530,7 +610,7 @@ const Contact = () => {
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground">
-          <div className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /> 535 Mission Street, San Francisco, CA 94105</div>
+          <div className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /> Offices &amp; Factory · Para&ntilde;aque City, Metro Manila, Philippines</div>
           <div>Or simply email us — we read every message personally.</div>
         </div>
       </div>
@@ -544,7 +624,7 @@ const FaqSection = () => {
       id="faq"
       eyebrow="Frequently asked"
       title="Answers to common questions."
-      subtitle={"Still curious? Reach out and we\u2019ll happily answer in detail."}
+      subtitle={"Still curious? Reach out and we’ll happily answer in detail."}
     >
       <div className="mx-auto max-w-3xl">
         <Accordion type="single" collapsible className="w-full divide-y divide-border rounded-2xl border border-border bg-card">
@@ -573,14 +653,13 @@ const Footer = () => {
           <div className="md:col-span-2">
             <Logo />
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-              Apex Strategy is a senior-led growth consultancy partnering with ambitious businesses to design strategy, ship execution, and compound measurable outcomes — quarter after quarter.
+              Answer Signs is a brand of Answer Advertising Corporation, a Philippine signage pioneer since 1977. We design, fabricate and install signage for the country&rsquo;s most trusted brands — from Makati to Mindanao.
             </p>
             <div className="mt-6 flex items-center gap-2">
               {[
-                { Icon: Linkedin,  href: 'https://www.linkedin.com/company/apexstrategy', label: 'LinkedIn' },
-                { Icon: Twitter,   href: 'https://twitter.com/apexstrategy',              label: 'Twitter' },
-                { Icon: Facebook,  href: 'https://facebook.com/apexstrategy',             label: 'Facebook' },
-                { Icon: Instagram, href: 'https://instagram.com/apexstrategy',            label: 'Instagram' },
+                { Icon: Facebook,  href: 'https://facebook.com/answersigns',                label: 'Facebook' },
+                { Icon: Instagram, href: 'https://instagram.com/answersigns',               label: 'Instagram' },
+                { Icon: Linkedin,  href: 'https://www.linkedin.com/company/answer-signs',   label: 'LinkedIn' },
               ].map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -599,9 +678,9 @@ const Footer = () => {
           <div>
             <div className="text-sm font-semibold tracking-tight">Company</div>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li><a href="#about" className="hover:text-foreground">About</a></li>
+              <li><a href="#about" className="hover:text-foreground">About Us</a></li>
               <li><a href="#stories" className="hover:text-foreground">Success Stories</a></li>
-              <li><a href="#process" className="hover:text-foreground">Process</a></li>
+              <li><a href="#process" className="hover:text-foreground">Our Process</a></li>
               <li><a href="#faq" className="hover:text-foreground">FAQ</a></li>
             </ul>
           </div>
@@ -609,15 +688,15 @@ const Footer = () => {
           <div>
             <div className="text-sm font-semibold tracking-tight">Contact</div>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-              <li><a href="mailto:hello@apexstrategy.com" className="hover:text-foreground">hello@apexstrategy.com</a></li>
-              <li><a href="tel:+14155550142" className="hover:text-foreground">+1 (415) 555-0142</a></li>
-              <li>535 Mission Street<br/>San Francisco, CA 94105</li>
+              <li><a href="mailto:inquiry@answersigns.com" className="hover:text-foreground">inquiry@answersigns.com</a></li>
+              <li><a href="tel:+63288211977" className="hover:text-foreground">+63 2 8821 1977</a></li>
+              <li>Para&ntilde;aque City<br/>Metro Manila, Philippines</li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
-          <p className="text-xs text-muted-foreground">© {year} Apex Strategy. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© {year} Answer Advertising Corporation. All rights reserved.</p>
           <div className="flex gap-5 text-xs text-muted-foreground">
             <a href="#" className="hover:text-foreground">Privacy Policy</a>
             <a href="#" className="hover:text-foreground">Terms of Service</a>
@@ -640,7 +719,7 @@ function App() {
       <main>
         <Hero />
         <TrustedBy />
-        <SuccessStats />
+        <About />
         <Stories />
         <WhyChoose />
         <Testimonials />

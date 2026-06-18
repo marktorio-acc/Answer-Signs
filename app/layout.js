@@ -2,42 +2,40 @@ import './globals.css';
 import { Providers } from './providers';
 import { Toaster } from '@/components/ui/sonner';
 
-const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://apexstrategy.example.com';
+const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://answersigns.example.com';
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Apex Strategy — Growth Consulting for Ambitious Businesses',
-    template: '%s · Apex Strategy',
+    default: 'Answer Signs — Philippine Signage Pioneers Since 1977',
+    template: '%s · Answer Signs',
   },
   description:
-    'Apex Strategy helps businesses achieve faster growth through proven strategy, execution, and measurable outcomes. 150+ projects delivered. 98% client satisfaction.',
+    'Answer Signs (Answer Advertising Corporation) has been crafting iconic signage for the Philippines’ most trusted brands since 1977. McDonald’s, Uniqlo, Ayala Land, Megaworld, Robinsons, H&M and more.',
   keywords: [
-    'business consulting', 'growth strategy', 'digital transformation',
-    'management consulting', 'agency', 'lead generation', 'B2B consulting',
+    'signage Philippines', 'sign maker Philippines', 'acrylic signs', 'thermo-forming acrylic',
+    'storefront signage', 'mall signage', 'pylon signs', 'Answer Signs', 'Answer Advertising', 'Parañaque signage',
   ],
-  authors: [{ name: 'Apex Strategy' }],
-  creator: 'Apex Strategy',
+  authors: [{ name: 'Answer Signs' }],
+  creator: 'Answer Advertising Corporation',
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'en_PH',
     url: siteUrl,
-    siteName: 'Apex Strategy',
-    title: 'Apex Strategy — Growth Consulting for Ambitious Businesses',
+    siteName: 'Answer Signs',
+    title: 'Answer Signs — Philippine Signage Pioneers Since 1977',
     description:
-      'Proven strategy & execution that drives measurable growth. 150+ projects delivered. 98% satisfaction rate.',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Apex Strategy' }],
+      'Crafting iconic signage for the Philippines’ most trusted brands for almost 50 years.',
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Answer Signs' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Apex Strategy — Growth Consulting for Ambitious Businesses',
-    description: 'Proven strategy & execution that drives measurable growth.',
+    title: 'Answer Signs — Philippine Signage Pioneers Since 1977',
+    description: 'Crafting iconic signage for the Philippines’ most trusted brands since 1977.',
     images: ['/og.png'],
   },
   robots: { index: true, follow: true },
-  icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
-  },
+  icons: { icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }] },
 };
 
 export const viewport = {
@@ -51,30 +49,31 @@ export const viewport = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'ProfessionalService',
-  name: 'Apex Strategy',
+  '@type': 'LocalBusiness',
+  name: 'Answer Signs',
+  alternateName: 'Answer Advertising Corporation',
   url: siteUrl,
   logo: `${siteUrl}/favicon.svg`,
+  foundingDate: '1977',
   description:
-    'Growth consulting and execution partner for ambitious businesses.',
-  email: 'hello@apexstrategy.com',
-  telephone: '+1-415-555-0142',
+    'Signage pioneer in the Philippines since 1977. Specializing in thermo-forming acrylic, lightboxes, channel letters, pylon and architectural signage for the country’s leading brands.',
+  email: 'inquiry@answersigns.com',
+  telephone: '+63-2-8821-1977',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '535 Mission Street',
-    addressLocality: 'San Francisco',
-    addressRegion: 'CA',
-    postalCode: '94105',
-    addressCountry: 'US',
+    addressLocality: 'Parañaque City',
+    addressRegion: 'Metro Manila',
+    addressCountry: 'PH',
   },
+  areaServed: 'PH',
   sameAs: [
-    'https://www.linkedin.com/company/apexstrategy',
-    'https://twitter.com/apexstrategy',
+    'https://www.linkedin.com/company/answer-signs',
+    'https://www.facebook.com/answersigns',
   ],
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
-    reviewCount: '127',
+    reviewCount: '184',
   },
 };
 
