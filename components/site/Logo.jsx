@@ -6,7 +6,9 @@ export function Logo({ className = '' }) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/brand/answer-signs-logo.png"
-        alt="Answer Signs"
+        alt="Answer Signs logo — Philippine signage company since 1977"
+        width={48}
+        height={48}
         className="h-12 w-12 object-contain transition-transform group-hover:scale-105 drop-shadow-sm"
       />
       <span className="hidden sm:flex flex-col leading-none">

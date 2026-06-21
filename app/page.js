@@ -298,7 +298,8 @@ const About = () => {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/brand/mcdonalds.jpg"
-          alt=""
+          alt="McDonald's drive-thru pylon signage and channel-letter facade fabricated and installed by Answer Signs in the Philippines"
+          loading="lazy"
           className="h-full w-full object-cover object-center scale-105"
         />
         {/* Layered overlays for legibility + brand tint */}
@@ -411,7 +412,7 @@ const Stories = () => {
     >
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {CASES.map((c, i) => (
-          <motion.div key={c.client} {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.08 }}>
+          <motion.article key={c.client} {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.08 }}>
             <Card className={`group relative h-full overflow-hidden border-border bg-gradient-to-br ${c.gradient} p-7 transition-all hover:-translate-y-1 hover:shadow-2xl`}>
               <div className="mb-5 flex items-center justify-between">
                 <Badge variant="secondary" className="rounded-full px-3 py-1 text-[11px] font-medium">{c.industry}</Badge>
@@ -443,11 +444,9 @@ const Stories = () => {
                 ))}
               </div>
             </Card>
-          </motion.div>
+          </motion.article>
         ))}
-      </div>
-
-      {/* Brands strip */}
+      </div>      {/* Brands strip */}
       <motion.div {...fadeUp} className="mt-12">
         <Card className="p-6 sm:p-8">
           <div className="text-center text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
@@ -748,6 +747,17 @@ const Contact = () => {
 };
 
 const FaqSection = () => {
+  // FAQPage JSON-LD: enables rich-result FAQ snippets in Google search results.
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  };
+
   return (
     <Section
       id="faq"
@@ -755,6 +765,10 @@ const FaqSection = () => {
       title="Answers to common questions."
       subtitle={"Still curious? Reach out and we’ll happily answer in detail."}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="mx-auto max-w-3xl">
         <Accordion type="single" collapsible className="w-full divide-y divide-border rounded-2xl border border-border bg-card">
           {FAQ.map((item, i) => (

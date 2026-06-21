@@ -2,40 +2,103 @@ import './globals.css';
 import { Providers } from './providers';
 import { Toaster } from '@/components/ui/sonner';
 
-const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://answersigns.example.com';
+/**
+ * Production site URL.
+ * Replace the placeholder “https://yourdomain.com” with the final custom domain
+ * once it is purchased, OR set NEXT_PUBLIC_SITE_URL in the deployment environment
+ * (Vercel → Project Settings → Environment Variables).
+ */
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com';
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  // metadataBase is required for resolving relative OG/Twitter image URLs and
+  // for the `alternates.canonical` shortcut to work as a relative path.
+  metadataBase: new URL(SITE_URL),
+
   title: {
-    default: 'Answer Signs — Philippine Signage Pioneers Since 1977',
-    template: '%s · Answer Signs',
+    default: 'Custom Signage Solutions Philippines | Answer Signs',
+    template: '%s | Answer Signs',
   },
   description:
-    'Answer Signs (Answer Advertising Corporation) has been crafting iconic signage for the Philippines’ most trusted brands since 1977. McDonald’s, Uniqlo, Ayala Land, Megaworld, Robinsons, H&M and more.',
+    'Answer Signs has been providing architectural signage, acrylic signs, LED signage, and nationwide installation services in the Philippines since 1977.',
+
   keywords: [
-    'signage Philippines', 'sign maker Philippines', 'acrylic signs', 'thermo-forming acrylic',
-    'storefront signage', 'mall signage', 'pylon signs', 'Answer Signs', 'Answer Advertising', 'Parañaque signage',
+    'custom signage Philippines',
+    'architectural signage',
+    'acrylic signs',
+    'LED signage',
+    'channel letters',
+    'pylon signs',
+    'wayfinding signage',
+    'storefront signage',
+    'mall signage',
+    'thermo-forming acrylic',
+    'sign maker Philippines',
+    'Answer Signs',
+    'Answer Advertising Corporation',
+    'Parañaque signage',
   ],
-  authors: [{ name: 'Answer Signs' }],
+
+  authors: [{ name: 'Answer Signs', url: SITE_URL }],
   creator: 'Answer Advertising Corporation',
+  publisher: 'Answer Advertising Corporation',
+  applicationName: 'Answer Signs',
+  category: 'Signage & Manufacturing',
+
+  // Canonical URL of the homepage (relative is resolved against metadataBase).
+  alternates: {
+    canonical: '/',
+  },
+
+  // Open Graph metadata for Facebook, LinkedIn, WhatsApp etc.
   openGraph: {
     type: 'website',
     locale: 'en_PH',
-    url: siteUrl,
+    url: SITE_URL,
     siteName: 'Answer Signs',
-    title: 'Answer Signs — Philippine Signage Pioneers Since 1977',
+    title: 'Custom Signage Solutions Philippines | Answer Signs',
     description:
-      'Crafting iconic signage for the Philippines’ most trusted brands for almost 50 years.',
-    images: [{ url: '/og.png', width: 1200, height: 630, alt: 'Answer Signs' }],
+      'Answer Signs has been providing architectural signage, acrylic signs, LED signage, and nationwide installation services in the Philippines since 1977.',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Answer Signs — custom signage solutions in the Philippines since 1977.',
+      },
+    ],
   },
+
+  // Twitter / X card metadata.
   twitter: {
     card: 'summary_large_image',
-    title: 'Answer Signs — Philippine Signage Pioneers Since 1977',
-    description: 'Crafting iconic signage for the Philippines’ most trusted brands since 1977.',
+    title: 'Custom Signage Solutions Philippines | Answer Signs',
+    description:
+      'Answer Signs has been providing architectural signage, acrylic signs, LED signage, and nationwide installation services in the Philippines since 1977.',
     images: ['/og.png'],
   },
-  robots: { index: true, follow: true },
-  icons: { icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }] },
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+  },
+
+  // Optional verification placeholders — fill in once Google / Bing tokens are issued.
+  // verification: { google: 'TODO', other: { 'msvalidate.01': 'TODO' } },
+
+  formatDetection: { telephone: true, email: true, address: true },
 };
 
 export const viewport = {
@@ -47,16 +110,21 @@ export const viewport = {
   initialScale: 1,
 };
 
+/**
+ * Organization / LocalBusiness JSON-LD
+ * Helps Google show the rich Knowledge-Panel-style result for the business.
+ */
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Answer Signs',
   alternateName: 'Answer Advertising Corporation',
-  url: siteUrl,
-  logo: `${siteUrl}/favicon.svg`,
+  url: SITE_URL,
+  logo: `${SITE_URL}/brand/answer-signs-logo.png`,
+  image: `${SITE_URL}/og.png`,
   foundingDate: '1977',
   description:
-    'Signage pioneer in the Philippines since 1977. Specializing in thermo-forming acrylic, lightboxes, channel letters, pylon and architectural signage for the country’s leading brands.',
+    'Answer Signs has been providing architectural signage, acrylic signs, LED signage, and nationwide installation services in the Philippines since 1977.',
   email: 'aac.answersigns@gmail.com',
   telephone: ['+63-2-8824-6909', '+63-2-8824-6911'],
   address: {
@@ -66,14 +134,22 @@ const jsonLd = {
     addressCountry: 'PH',
   },
   areaServed: 'PH',
-  sameAs: [
-    'https://www.facebook.com/answersigns',
-  ],
+  sameAs: ['https://www.facebook.com/answersigns'],
   aggregateRating: {
     '@type': 'AggregateRating',
     ratingValue: '4.9',
     reviewCount: '184',
   },
+  knowsAbout: [
+    'Architectural signage',
+    'Acrylic signs',
+    'LED signage',
+    'Wayfinding signage',
+    'Pylon signs',
+    'Channel letters',
+    'Thermo-formed acrylic',
+    'Storefront signage',
+  ],
 };
 
 export default function RootLayout({ children }) {
