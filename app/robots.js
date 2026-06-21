@@ -6,7 +6,7 @@
  * purchased, OR set NEXT_PUBLIC_SITE_URL in the deployment environment.
  */
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://answer-signs.vercel.app';
 
 export default function robots() {
   return {
