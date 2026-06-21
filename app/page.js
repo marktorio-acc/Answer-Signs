@@ -839,7 +839,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
-          <p className="text-xs text-muted-foreground">© {year} Answer Advertising Corporation. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© {year} Answer Advertising Corporation. Designed and developed by Mark Torio.</p>
           <div className="flex gap-5 text-xs text-muted-foreground">
             <a href="#" className="hover:text-foreground">Privacy Policy</a>
             <a href="#" className="hover:text-foreground">Terms of Service</a>
