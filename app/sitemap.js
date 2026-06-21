@@ -1,46 +1,66 @@
 /**
  * Next.js Metadata Route: sitemap.xml
- * Documentation: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
+ * Documentation:
+ * https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
  *
- * Replace https://yourdomain.com with the final custom domain once it is
- * purchased, OR set NEXT_PUBLIC_SITE_URL in the deployment environment.
+ * NOTE:
+ * This is currently a single-page website hosted on Vercel.
+ * Once a custom domain is available, update NEXT_PUBLIC_SITE_URL
+ * in your environment variables.
  *
- * NOTE FOR FUTURE GROWTH:
- * When dedicated service pages are added, append their routes here, e.g.
- *   { path: '/architectural-signage', priority: 0.8 },
- *   { path: '/led-signage',           priority: 0.8 },
- *   { path: '/wayfinding-signage',    priority: 0.8 },
- *   { path: '/pylon-signs',           priority: 0.8 },
- *   { path: '/acrylic-signs',         priority: 0.8 },
+ * FUTURE SERVICE PAGES:
+ * Uncomment and add these routes when you create dedicated pages:
+ *
+ *   /architectural-signage
+ *   /led-signage
+ *   /wayfinding-signage
+ *   /pylon-signs
+ *   /acrylic-signs
  */
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://answer-signs.vercel.app';
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  'https://answer-signs.vercel.app';
 
 export default function sitemap() {
-  const now = new Date();
+  return [
+    {
+      url: SITE_URL,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1.0,
+    },
 
-  // Single-page site — all primary sections live on '/', but we still expose
-  // each anchor URL so search engines understand the information architecture.
-  const routes = [
-    { path: '/',                 priority: 1.0, changeFrequency: 'monthly' },
-    { path: '/#about',           priority: 0.9, changeFrequency: 'monthly' },
-    { path: '/#stories',         priority: 0.9, changeFrequency: 'monthly' },
-    { path: '/#process',         priority: 0.7, changeFrequency: 'yearly'  },
-    { path: '/#faq',             priority: 0.7, changeFrequency: 'yearly'  },
-    { path: '/#contact',         priority: 0.9, changeFrequency: 'yearly'  },
-
-    // FUTURE SERVICE PAGES — uncomment & implement these routes when ready:
-    // { path: '/architectural-signage', priority: 0.8, changeFrequency: 'monthly' },
-    // { path: '/led-signage',           priority: 0.8, changeFrequency: 'monthly' },
-    // { path: '/wayfinding-signage',    priority: 0.8, changeFrequency: 'monthly' },
-    // { path: '/pylon-signs',           priority: 0.8, changeFrequency: 'monthly' },
-    // { path: '/acrylic-signs',         priority: 0.8, changeFrequency: 'monthly' },
+    // FUTURE SERVICE PAGES:
+    // {
+    //   url: `${SITE_URL}/architectural-signage`,
+    //   lastModified: new Date(),
+    //   changeFrequency: 'monthly',
+    //   priority: 0.8,
+    // },
+    // {
+    //   url: `${SITE_URL}/led-signage`,
+    //   lastModified: new Date(),
+    //   changeFrequency: 'monthly',
+    //   priority: 0.8,
+    // },
+    // {
+    //   url: `${SITE_URL}/wayfinding-signage`,
+    //   lastModified: new Date(),
+    //   changeFrequency: 'monthly',
+    //   priority: 0.8,
+    // },
+    // {
+    //   url: `${SITE_URL}/pylon-signs`,
+    //   lastModified: new Date(),
+    //   changeFrequency: 'monthly',
+    //   priority: 0.8,
+    // },
+    // {
+    //   url: `${SITE_URL}/acrylic-signs`,
+    //   lastModified: new Date(),
+    //   changeFrequency: 'monthly',
+    //   priority: 0.8,
+    // },
   ];
-
-  return routes.map(({ path, priority, changeFrequency }) => ({
-    url: `${SITE_URL}${path}`,
-    lastModified: now,
-    changeFrequency,
-    priority,
-  }));
 }
