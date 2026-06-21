@@ -8,7 +8,7 @@ import { Toaster } from '@/components/ui/sonner';
  * once it is purchased, OR set NEXT_PUBLIC_SITE_URL in the deployment environment
  * (Vercel → Project Settings → Environment Variables).
  */
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://answer-signs.vercel.app';
 
 export const metadata = {
   // metadataBase is required for resolving relative OG/Twitter image URLs and
