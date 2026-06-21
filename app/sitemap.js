@@ -14,7 +14,7 @@
  *   { path: '/acrylic-signs',         priority: 0.8 },
  */
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yourdomain.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://answer-signs.vercel.app';
 
 export default function sitemap() {
   const now = new Date();
